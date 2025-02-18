@@ -1,0 +1,68 @@
+# Controle de LEDs e Tela OLED com Joystick e Botão Usando Raspberry Pi Pico
+
+## Descrição Geral
+Este projeto utiliza um Raspberry Pi Pico para controlar um conjunto de LEDs RGB e uma tela OLED SSD1306 com base na entrada de um joystick analógico. O projeto também integra dois botões (o botão do joystick e um botão adicional) para controlar o estado dos LEDs e modificar elementos visuais na tela.
+
+## Funcionalidades
+1. **Joystick Analógico:**
+   - Controla a posição de um quadrado na tela OLED com base nos valores analógicos dos eixos X e Y.
+   - Pressionar o botão do joystick ativa/desativa um LED verde e cria camadas adicionais na tela OLED.
+
+2. **Controle de LEDs RGB:**
+   - O LED vermelho responde aos valores do eixo X do joystick.
+   - O LED azul responde aos valores do eixo Y do joystick.
+   - Os LEDs podem ser ativados ou desativados pressionando o botão adicional (BUTTON_A).
+
+3. **Tela OLED SSD1306:**
+   - Exibe um quadrado que se move de acordo com a posição do joystick.
+   - Permite adicionar bordas e camadas extras dependendo das interações do usuário.
+
+## Requisitos de Hardware
+- Raspberry Pi Pico.
+- Joystick analógico com botão.
+- Tela OLED SSD1306 (128x64) com comunicação I2C.
+- LEDs RGB conectados aos pinos GPIO do Pico.
+- Botão adicional para controle dos LEDs.
+- Resistores pull-up conforme necessário.
+
+## Dependências de Software
+- Biblioteca SSD1306 para controle da tela OLED.
+- Configuração de PWM para controle dos LEDs RGB.
+- GPIO para entrada/saída digital.
+
+## Funcionalidades Detalhadas
+
+### Joystick
+- **Eixo X e Eixo Y:**
+  Os valores analógicos do joystick são lidos pelos pinos ADC do Pico e usados para determinar a posição de um quadrado na tela OLED.
+
+- **Botão do Joystick:**
+  Pressionar o botão do joystick por aproximadamente 2 segundos alterna o estado do LED verde e adiciona camadas visuais extras na tela.
+
+### Botão Adicional (BUTTON_A)
+Pressionar o botão adicional ativa ou desativa os LEDs RGB. Quando desativados, os LEDs ficam apagados independentemente da entrada do joystick.
+
+### LEDs RGB
+- **LED Vermelho:** Controlado pelo eixo X do joystick.
+- **LED Azul:** Controlado pelo eixo Y do joystick.
+- **LED Verde:** Alterna entre ligado e desligado ao pressionar o botão do joystick.
+
+### Tela OLED SSD1306
+- Mostra um quadrado controlado pelo joystick.
+- Possui opção de mostrar bordas dinâmicas e camadas extras ao interagir com os botões.
+
+## Ciclo Principal do Programa
+1. Leitura dos valores analógicos do joystick.
+2. Atualização da tela OLED com base na posição do joystick.
+3. Controle dos LEDs RGB com base nos valores dos eixos X e Y.
+4. Responde a eventos de interrupção para alternar LEDs ou modificar a interface da tela.
+
+## Como Executar
+1. Conecte todos os componentes conforme descrito na seção "Conexões do Hardware".
+2. Compile e carregue o código no Raspberry Pi Pico usando uma IDE como o VS Code com o SDK do Pico.
+3. Execute o programa e interaja com o joystick e os botões para verificar as funcionalidades.
+
+
+
+
+
